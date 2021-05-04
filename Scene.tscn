@@ -1,0 +1,311 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Suzanne.glb" type="PackedScene" id=1]
+[ext_resource path="res://CameraGimbal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene.gd" type="Script" id=3]
+[ext_resource path="res://Head.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Head2.tscn" type="PackedScene" id=5]
+
+[node name="Scene" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Suzanne" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="CameraGimbal" parent="." instance=ExtResource( 2 )]
+min_zoom = 0.1
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ItemList" type="ItemList" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 60.0
+margin_right = 120.0
+margin_bottom = 180.0
+focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonSavePosition" type="Button" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 117.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Save Position"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonScreenCapture" type="Button" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 200.0
+margin_right = 128.0
+margin_bottom = 220.0
+text = "Capture Screen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Head" parent="." instance=ExtResource( 4 )]
+
+[node name="Head2" parent="." instance=ExtResource( 5 )]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.999947, -0.00213067, -0.0100793, 0.0100038, -0.0328917, 0.999409, -0.00246094, -0.999457, -0.0328686, -0.0142493, 3.24309, 0.00999498 )
+light_energy = 0.5
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( 0.999997, -0.00168641, 0.00146551, 0.0014138, -0.0302699, -0.999541, 0.00173, 0.99954, -0.0302675, 0.187719, -2.90109, -0.102089 )
+light_energy = 0.5
+
+[node name="DirectionalLight3" type="DirectionalLight" parent="."]
+transform = Transform( 0.0263366, 0.00506847, 0.99964, 0.000390588, 0.999987, -0.00508052, -0.999653, 0.00052425, 0.0263342, 3.78335, 0.1683, 0.0531604 )
+light_energy = 0.5
+
+[node name="DirectionalLight4" type="DirectionalLight" parent="."]
+transform = Transform( -0.0769891, 0.00739203, -0.997005, -0.000202326, 0.999972, 0.00742966, 0.997032, 0.000773722, -0.0769855, -3.70493, 0.1683, 0.19496 )
+light_energy = 0.5
+
+[node name="DirectionalLight5" type="DirectionalLight" parent="."]
+transform = Transform( -0.999425, 0.000536757, -0.0338886, 0.0004307, 0.999995, 0.00313681, 0.0338901, 0.00312041, -0.999421, -0.329297, 0.1683, -4.26362 )
+light_energy = 0.5
+
+[node name="DirectionalLight6" type="DirectionalLight" parent="."]
+transform = Transform( 0.998363, -0.00634392, -0.0568403, 0.00822328, 0.999425, 0.0328912, 0.056599, -0.0333047, 0.997841, -0.329297, 0.1683, 3.96412 )
+light_energy = 0.5
+
+[node name="ButtonHead1" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 80.0
+margin_right = 114.0
+margin_bottom = 100.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Show/hide Head 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonHead2" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 120.0
+margin_right = 114.0
+margin_bottom = 140.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Show/hide Head 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonAnnot1" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 160.0
+margin_right = 114.0
+margin_bottom = 180.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Annotation 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonAnnot2" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 200.0
+margin_right = 114.0
+margin_bottom = 220.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Annotation 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonAnnot3" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 240.0
+margin_right = 114.0
+margin_bottom = 260.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Annotation 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextHead" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -419.145
+margin_top = 34.6601
+margin_right = -19.1445
+margin_bottom = 334.66
+focus_mode = 2
+text = "Reconstruction of Flavian Marble portrrait.
+
+A reconstruction made for my masters thesis in Archaeology and ancient history at Lund University.
+
+A Roman portrait head in marble from the end of the 1st century CE. Portraying a female with disctinct flavian shield like coiffurein the front and melon coiffure in the back. The reconstruction lacks ifnromation from the bottom and on parts of the knot in the back of the coiffure.
+
+Meta and para-data form can be found at: https://drive.google.com/drive/folders/1J4wht5NWNKsaPdCOHCjzqAo8tgtkfenf?usp=sharing along with raw data and all data acquired throughout the work.
+
+Model by Filip Johstone, processed from 44 photographs using a Canon EOS 6D Mark II in Agisoft Metashape."
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TextHead"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.176471, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextHead2" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -416.0
+margin_top = 36.0
+margin_right = -20.0
+margin_bottom = 334.0
+focus_mode = 2
+text = "This is an additional 3D model created to accompany LUKS148 showing its different context in color.
+
+Red: Original roman marble. 
+Blue: Restorations done probably during the 18th century. 
+Green: Areas with bad information during photogrammetry campaign wich resulted in inaccurate result. 
+Yellow: Digital reconstructions made in post processing."
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="TextHead2"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+color = Color( 0.172549, 0.176471, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAnnot1" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = -25.0
+margin_right = 220.0
+margin_bottom = 25.0
+focus_mode = 2
+text = "The melon coiffure"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TextAnnot1"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.176471, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonXAnnot1" type="Button" parent="TextAnnot1"]
+margin_left = 153.979
+margin_top = 2.76898
+margin_right = 172.979
+margin_bottom = 22.769
+focus_mode = 0
+enabled_focus_mode = 0
+text = "x"
+
+[node name="TextAnnot2" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = -25.0
+margin_right = 220.0
+margin_bottom = 25.0
+focus_mode = 2
+text = "The Shieldlike coiffure"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TextAnnot2"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.176471, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonXAnnot2" type="Button" parent="TextAnnot2"]
+margin_left = 155.063
+margin_top = 3.24908
+margin_right = 174.063
+margin_bottom = 23.2491
+focus_mode = 0
+enabled_focus_mode = 0
+text = "x"
+
+[node name="TextAnnot3" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = -25.0
+margin_right = 220.0
+margin_bottom = 75.0
+focus_mode = 2
+text = "Lack of information 
+during photopgraphy 
+aquisition lead to bad information on the bottom and underside of the knot."
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TextAnnot3"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.176471, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonXAnnot3" type="Button" parent="TextAnnot3"]
+margin_left = 155.063
+margin_top = 3.24908
+margin_right = 174.063
+margin_bottom = 23.2491
+focus_mode = 0
+enabled_focus_mode = 0
+text = "x"
+
+[connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="pressed" from="ButtonSavePosition" to="." method="_on_ButtonSavePosition_pressed"]
+[connection signal="pressed" from="ButtonScreenCapture" to="." method="_on_ButtonScreenCapture_pressed"]
+[connection signal="pressed" from="ButtonHead1" to="." method="_on_ButtonHead1_pressed"]
+[connection signal="pressed" from="ButtonHead2" to="." method="_on_ButtonHead2_pressed"]
+[connection signal="pressed" from="ButtonAnnot1" to="." method="_on_ButtonAnnot1_pressed"]
+[connection signal="pressed" from="ButtonAnnot2" to="." method="_on_ButtonAnnot2_pressed"]
+[connection signal="pressed" from="ButtonAnnot3" to="." method="_on_ButtonAnnot3_pressed"]
+[connection signal="pressed" from="TextAnnot1/ButtonXAnnot1" to="." method="_on_ButtonXAnnot1_pressed"]
+[connection signal="pressed" from="TextAnnot2/ButtonXAnnot2" to="." method="_on_ButtonXAnnot2_pressed"]
+[connection signal="pressed" from="TextAnnot3/ButtonXAnnot3" to="." method="_on_ButtonXAnnot3_pressed"]
