@@ -10,21 +10,13 @@ onready var itemList = get_node("ItemList")
 func _ready():
 	$Head2/MeshInstance.visible = false
 	$Head/MeshInstance.visible = true
-	$TextAnnot1.visible = false
-	$TextAnnot2.visible = false
-	$TextAnnot3.visible = false
+	
+	$WindowDialogTextHead.show()
+	
 
 func _process(delta):
-	if ($Head/MeshInstance.visible == true):
-		$TextHead.visible = true
-	else:
-		$TextHead.visible = false
-		
-	if ($Head2/MeshInstance.visible == true):
-		$TextHead2.visible = true
-	else:
-		$TextHead2.visible = false
-
+	pass
+	
 #tweens camera to selected position
 func _on_ItemList_item_activated(index):
 	var tween = $Tween
@@ -61,17 +53,25 @@ func _on_ButtonScreenCapture_pressed():
 
 
 func _on_ButtonHead2_pressed():
+	
 	if ($Head2/MeshInstance.visible == true):
 		$Head2/MeshInstance.visible = false
 	elif ($Head2/MeshInstance.visible == false):
 		$Head2/MeshInstance.visible = true
+		$WindowDialogTextHead2.show()
+	
+	#$CameraGimbal.translation = $Head2.translation
 
 
 func _on_ButtonHead1_pressed():
+	
 	if ($Head/MeshInstance.visible == true):
 		$Head/MeshInstance.visible = false
 	elif ($Head/MeshInstance.visible == false):
 		$Head/MeshInstance.visible = true
+		$WindowDialogTextHead.show()
+
+	#$CameraGimbal.translation = $Head.translation
 
 
 func _on_ButtonAnnot1_pressed():
@@ -81,7 +81,7 @@ func _on_ButtonAnnot1_pressed():
 	tween.interpolate_property($CameraGimbal, "rotation_degrees", $CameraGimbal.rotation_degrees, rd_x, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.interpolate_property($CameraGimbal/InnerGimbal, "rotation_degrees", $CameraGimbal/InnerGimbal.rotation_degrees, rd_y, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-	$TextAnnot1.visible = true
+	$WindowDialog1.show()
 
 
 func _on_ButtonAnnot2_pressed():
@@ -91,16 +91,8 @@ func _on_ButtonAnnot2_pressed():
 	tween.interpolate_property($CameraGimbal, "rotation_degrees", $CameraGimbal.rotation_degrees, rd_x, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.interpolate_property($CameraGimbal/InnerGimbal, "rotation_degrees", $CameraGimbal/InnerGimbal.rotation_degrees, rd_y, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-	$TextAnnot2.visible = true
+	$WindowDialog2.show()
 	
-
-
-func _on_ButtonXAnnot1_pressed():
-	$TextAnnot1.visible = false
-
-
-func _on_ButtonXAnnot2_pressed():
-	$TextAnnot2.visible = false
 
 
 func _on_ButtonAnnot3_pressed():
@@ -110,8 +102,18 @@ func _on_ButtonAnnot3_pressed():
 	tween.interpolate_property($CameraGimbal, "rotation_degrees", $CameraGimbal.rotation_degrees, rd_x, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.interpolate_property($CameraGimbal/InnerGimbal, "rotation_degrees", $CameraGimbal/InnerGimbal.rotation_degrees, rd_y, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-	$TextAnnot3.visible = true
+	$WindowDialog3.show()
 
 
-func _on_ButtonXAnnot3_pressed():
-	$TextAnnot3.visible = false
+
+func _on_ButtonReturnGimbal_pressed():
+	var gimbal = $CameraGimbal
+	gimbal.translation = Vector3(0,0,0)
+
+
+func _on_ButtonFocus1_pressed():
+	$CameraGimbal.translation = $Head.translation
+
+
+func _on_ButtonFocus2_pressed():
+	$CameraGimbal.translation = $Head2.translation
