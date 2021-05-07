@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Linn Friberg - Let There Be Peace.mp3-8ada135b081aae9a756e095ca4434430.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Linn Friberg - Let There Be Peace.mp3"
+dest_files=[ "res://.import/Linn Friberg - Let There Be Peace.mp3-8ada135b081aae9a756e095ca4434430.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

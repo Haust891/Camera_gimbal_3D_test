@@ -1,12 +1,134 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
+[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://CameraGimbal.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scene.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Scene.gd" type="Script" id=3]
 [ext_resource path="res://Head.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Head2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/Linn Friberg - Let There Be Peace.mp3" type="AudioStream" id=6]
+[ext_resource path="res://MenuButton.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/MenuButtonOther.gd" type="Script" id=8]
+[ext_resource path="res://Images/UI/speaker-off.png" type="Texture" id=9]
+[ext_resource path="res://Images/UI/speaker.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/MenuButtonHead1.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/MenuButtonHead2.gd" type="Script" id=12]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = ExtResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = ExtResource( 1 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
 
 [node name="Scene" type="Node"]
 script = ExtResource( 3 )
+
+[node name="SelectionUI" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtonHead1" type="MenuButton" parent="SelectionUI"]
+margin_right = 57.0
+margin_bottom = 27.0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Head 1"
+flat = false
+items = [ "Toggle Visibility", null, 0, false, false, 0, 0, null, "", false, "Show Information", null, 0, false, false, 1, 0, null, "", false, "Set as Focus", null, 0, false, false, 2, 0, null, "", false ]
+script = ExtResource( 11 )
+
+[node name="ButtonHead1" type="Button" parent="SelectionUI"]
+visible = false
+margin_left = 67.0
+margin_right = 206.0
+margin_bottom = 27.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Show/hide Head 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonFocus1" type="Button" parent="SelectionUI"]
+visible = false
+margin_left = 67.0
+margin_right = 169.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 1 )
+text = "Focus Head 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtonHead2" type="MenuButton" parent="SelectionUI"]
+margin_left = 67.0
+margin_right = 127.0
+margin_bottom = 27.0
+theme = SubResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "Head 2"
+flat = false
+items = [ "Toggle Visibility", null, 0, false, false, 0, 0, null, "", false, "Show Information", null, 0, false, false, 1, 0, null, "", false, "Set as Focus", null, 0, false, false, 2, 0, null, "", false ]
+script = ExtResource( 12 )
+
+[node name="ButtonHead2" type="Button" parent="SelectionUI"]
+visible = false
+margin_left = 137.0
+margin_right = 279.0
+margin_bottom = 27.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Show/hide Head 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonFocus2" type="Button" parent="SelectionUI"]
+visible = false
+margin_left = 137.0
+margin_right = 242.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 1 )
+text = "Focus Head 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtonStyle" type="MenuButton" parent="SelectionUI"]
+margin_left = 137.0
+margin_right = 276.0
+margin_bottom = 27.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Stylistic Elements"
+flat = false
+items = [ "Melon Coiffure", null, 0, false, false, 0, 0, null, "", false, "Shield like Coiffure", null, 0, false, false, 1, 0, null, "", false ]
+script = ExtResource( 7 )
+
+[node name="MenuButtonOther" type="MenuButton" parent="SelectionUI"]
+margin_left = 286.0
+margin_right = 434.0
+margin_bottom = 27.0
+focus_mode = 2
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Other Annotations"
+flat = false
+items = [ "Lack of information", null, 0, false, false, 0, 0, null, "", false ]
+script = ExtResource( 8 )
 
 [node name="CameraGimbal" parent="." instance=ExtResource( 2 )]
 min_zoom = 0.1
@@ -24,26 +146,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonSavePosition" type="Button" parent="."]
+[node name="ButtonScreenCapture" type="Button" parent="."]
 visible = false
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 117.0
-margin_bottom = 40.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Save Position"
+margin_right = 108.0
+margin_bottom = 20.0
+text = "Capture Screen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonScreenCapture" type="Button" parent="."]
+[node name="ButtonSavePosition" type="Button" parent="."]
 visible = false
-margin_left = 20.0
-margin_top = 200.0
-margin_right = 128.0
-margin_bottom = 220.0
-text = "Capture Screen"
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 115.0
+margin_bottom = 83.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Save Position"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,36 +198,14 @@ light_energy = 0.5
 transform = Transform( 0.998363, -0.00634392, -0.0568403, 0.00822328, 0.999425, 0.0328912, 0.056599, -0.0333047, 0.997841, -0.329297, 0.1683, 3.96412 )
 light_energy = 0.5
 
-[node name="ButtonHead1" type="Button" parent="."]
-margin_left = 20.0
-margin_top = 80.0
-margin_right = 114.0
-margin_bottom = 100.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Show/hide Head 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonHead2" type="Button" parent="."]
-margin_left = 20.0
-margin_top = 120.0
-margin_right = 114.0
-margin_bottom = 140.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Show/hide Head 2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ButtonAnnot1" type="Button" parent="."]
+visible = false
 margin_left = 20.0
 margin_top = 160.0
 margin_right = 114.0
 margin_bottom = 180.0
 focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
 text = "Annotation 1"
 __meta__ = {
@@ -114,11 +213,13 @@ __meta__ = {
 }
 
 [node name="ButtonAnnot2" type="Button" parent="."]
+visible = false
 margin_left = 20.0
 margin_top = 200.0
 margin_right = 114.0
 margin_bottom = 220.0
 focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
 text = "Annotation 2"
 __meta__ = {
@@ -126,11 +227,13 @@ __meta__ = {
 }
 
 [node name="ButtonAnnot3" type="Button" parent="."]
+visible = false
 margin_left = 20.0
 margin_top = 240.0
 margin_right = 114.0
 margin_bottom = 260.0
 focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
 text = "Annotation 3"
 __meta__ = {
@@ -143,9 +246,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -500.0
-margin_top = -150.0
-margin_bottom = 150.0
+margin_left = -504.0
+margin_top = -196.0
+margin_right = -4.0
+margin_bottom = 104.0
 popup_exclusive = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -155,7 +259,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
-text = "This is an additional 3D model created to accompany LUKS148 showing its different context in color.
+custom_fonts/normal_font = ExtResource( 1 )
+text = "
+This is an additional 3D model created to accompany LUKS148 showing its different context in color.
 
 Red: Original roman marble. 
 Blue: Restorations done probably during the 18th century. 
@@ -177,26 +283,29 @@ __meta__ = {
 }
 
 [node name="WindowDialogTextHead" type="WindowDialog" parent="."]
+visible = true
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -500.0
-margin_top = -150.0
-margin_bottom = 150.0
+margin_left = -504.0
+margin_top = -108.0
+margin_right = -4.0
+margin_bottom = 192.0
 popup_exclusive = true
 
 [node name="TextHead" type="RichTextLabel" parent="WindowDialogTextHead"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
-text = "Reconstruction of Flavian Marble portrrait.
+custom_fonts/normal_font = ExtResource( 1 )
+text = "A reconstruction made for my masters thesis in Archaeology and ancient history at Lund University.
 
-A reconstruction made for my masters thesis in Archaeology and ancient history at Lund University.
+Roman portrait head in marble from the end of the 1st century CE.
+Portraying a female with distinct flavian-style shield like coiffure above the forehead and a melon coiffure in the back.
+The reconstruction lacks information from the bottom and on parts of the knot in the back of the coiffure.
 
-A Roman portrait head in marble from the end of the 1st century CE. Portraying a female with disctinct flavian shield like coiffurein the front and melon coiffure in the back. The reconstruction lacks ifnromation from the bottom and on parts of the knot in the back of the coiffure.
-
-Meta and para-data form can be found at: https://drive.google.com/drive/folders/1J4wht5NWNKsaPdCOHCjzqAo8tgtkfenf?usp=sharing along with raw data and all data acquired throughout the work.
+The original artefact is part of the Lund University art collection: LUK S148.
 
 Model by Filip Johstone, processed from 44 photographs using a Canon EOS 6D Mark II in Agisoft Metashape."
 selection_enabled = true
@@ -215,11 +324,15 @@ __meta__ = {
 
 [node name="WindowDialog1" type="WindowDialog" parent="."]
 visible = true
+show_behind_parent = true
 anchor_top = 0.8
 anchor_bottom = 0.8
-margin_top = -150.0
-margin_right = 200.0
+margin_left = 8.0
+margin_top = -208.0
+margin_right = 258.0
+margin_bottom = -8.0
 popup_exclusive = true
+window_title = "Melon Coiffure"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -228,6 +341,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
+custom_fonts/normal_font = ExtResource( 1 )
 text = "The melon coiffure.
 
 Hairstyle that had been popular in the higher social strata in rome for some time during the late 1st century. Can be seen on portraits of Livia."
@@ -247,11 +361,15 @@ __meta__ = {
 
 [node name="WindowDialog2" type="WindowDialog" parent="."]
 visible = true
+show_behind_parent = true
 anchor_top = 0.8
 anchor_bottom = 0.8
-margin_top = -150.0
-margin_right = 200.0
+margin_left = 40.0
+margin_top = -184.0
+margin_right = 290.0
+margin_bottom = 16.0
 popup_exclusive = true
+window_title = "Shield like Coiffure"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -260,6 +378,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
+custom_fonts/normal_font = ExtResource( 1 )
 text = "The Shieldlike coiffure.
 
 Hairstyle popular in the later flavian and early trajanic style periods. It can be seen on portraits of Domitia Longina, Domitians wife and the empress hade major stylistic influence."
@@ -279,11 +398,14 @@ __meta__ = {
 
 [node name="WindowDialog3" type="WindowDialog" parent="."]
 visible = true
-anchor_top = 0.8
-anchor_bottom = 0.8
-margin_top = -150.0
-margin_right = 200.0
+show_behind_parent = true
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -100.0
+margin_right = 250.0
+margin_bottom = 100.0
 popup_exclusive = true
+window_title = "Lack of information"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -294,7 +416,9 @@ anchor_bottom = 1.0
 margin_top = -2.0
 margin_bottom = -2.0
 focus_mode = 2
-text = "This spot and the bottom side of the neck has bad information and lacks information from conditions during the photo acquisition."
+custom_fonts/normal_font = ExtResource( 1 )
+text = "
+This spot and the bottom side of the neck has bad information and lacks information from conditions during the photo acquisition."
 selection_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -320,41 +444,76 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonFocus1" type="Button" parent="."]
-margin_left = 160.0
-margin_top = 80.0
-margin_right = 209.0
-margin_bottom = 100.0
-text = "Focus"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -3.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+material = SubResource( 4 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -48.0
+margin_top = 8.0
+margin_right = 464.0
+margin_bottom = 520.0
+rect_scale = Vector2( 0.08, 0.08 )
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonFocus2" type="Button" parent="."]
-margin_left = 160.0
-margin_top = 120.0
-margin_right = 209.0
-margin_bottom = 140.0
-text = "Focus"
+[node name="TabContainerHead1" type="TabContainer" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Tabs" type="Tabs" parent="TabContainerHead1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 39.0
+margin_right = -4.0
+margin_bottom = -4.0
 
+[node name="Tabs2" type="Tabs" parent="TabContainerHead1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 39.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Tabs3" type="Tabs" parent="TabContainerHead1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 39.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[connection signal="pressed" from="SelectionUI/ButtonHead1" to="." method="_on_ButtonHead1_pressed"]
+[connection signal="pressed" from="SelectionUI/ButtonFocus1" to="." method="_on_ButtonFocus1_pressed"]
+[connection signal="pressed" from="SelectionUI/ButtonHead2" to="." method="_on_ButtonHead2_pressed"]
+[connection signal="pressed" from="SelectionUI/ButtonFocus2" to="." method="_on_ButtonFocus2_pressed"]
 [connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]
-[connection signal="pressed" from="ButtonSavePosition" to="." method="_on_ButtonSavePosition_pressed"]
 [connection signal="pressed" from="ButtonScreenCapture" to="." method="_on_ButtonScreenCapture_pressed"]
-[connection signal="pressed" from="ButtonHead1" to="." method="_on_ButtonHead1_pressed"]
-[connection signal="pressed" from="ButtonHead2" to="." method="_on_ButtonHead2_pressed"]
+[connection signal="pressed" from="ButtonSavePosition" to="." method="_on_ButtonSavePosition_pressed"]
 [connection signal="pressed" from="ButtonAnnot1" to="." method="_on_ButtonAnnot1_pressed"]
 [connection signal="pressed" from="ButtonAnnot2" to="." method="_on_ButtonAnnot2_pressed"]
 [connection signal="pressed" from="ButtonAnnot3" to="." method="_on_ButtonAnnot3_pressed"]
 [connection signal="pressed" from="ButtonReturnGimbal" to="." method="_on_ButtonReturnGimbal_pressed"]
-[connection signal="pressed" from="ButtonFocus1" to="." method="_on_ButtonFocus1_pressed"]
-[connection signal="pressed" from="ButtonFocus2" to="." method="_on_ButtonFocus2_pressed"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_TextureButton_toggled"]
