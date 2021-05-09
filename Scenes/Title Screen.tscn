@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Title Screen.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/CreteRound-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Sounds/mixkit-classic-click-1117 (online-audio-converter.com).mp3" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Chad Crouch - Pacific Wrens (Instrumental).mp3" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/SceneTransitionRect.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -147,6 +148,8 @@ from freemusicarchive.org"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 6 )]
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

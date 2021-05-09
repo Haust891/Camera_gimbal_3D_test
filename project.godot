@@ -14,6 +14,10 @@ config/name="Camera_gimbal_3D"
 run/main_scene="res://Scenes/Title Screen.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/aspect="keep"
+
 [input]
 
 mouse_3={

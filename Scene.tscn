@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://CameraGimbal.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Images/UI/speaker.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/MenuButtonHead1.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/MenuButtonHead2.gd" type="Script" id=12]
+[ext_resource path="res://Fonts/CreteRound-Regular.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -24,6 +25,13 @@ default_font = ExtResource( 1 )
 
 [sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 1
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 13 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 1
+background_color = Color( 0.192157, 0.188235, 0.309804, 1 )
 
 [node name="Scene" type="Node"]
 script = ExtResource( 3 )
@@ -130,8 +138,18 @@ flat = false
 items = [ "Lack of information", null, 0, false, false, 0, 0, null, "", false ]
 script = ExtResource( 8 )
 
+[node name="ButtonProjectInfo" type="Button" parent="SelectionUI"]
+margin_left = 444.0
+margin_right = 599.0
+margin_bottom = 27.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Project Information"
+
 [node name="CameraGimbal" parent="." instance=ExtResource( 2 )]
 min_zoom = 0.1
+max_zoom = 1.0
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -241,7 +259,6 @@ __meta__ = {
 }
 
 [node name="WindowDialogTextHead2" type="WindowDialog" parent="."]
-visible = true
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -272,18 +289,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect2" type="ColorRect" parent="WindowDialogTextHead2/TextHead2"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -3.0
-color = Color( 0.172549, 0.176471, 0.219608, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="WindowDialogTextHead" type="WindowDialog" parent="."]
-visible = true
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -299,7 +305,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
 custom_fonts/normal_font = ExtResource( 1 )
-text = "A reconstruction made for my masters thesis in Archaeology and ancient history at Lund University.
+text = "
+A reconstruction made for my masters thesis in Archaeology and ancient history at Lund University.
 
 Roman portrait head in marble from the end of the 1st century CE.
 Portraying a female with distinct flavian-style shield like coiffure above the forehead and a melon coiffure in the back.
@@ -313,17 +320,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="WindowDialogTextHead/TextHead"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.172549, 0.176471, 0.219608, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="WindowDialog1" type="WindowDialog" parent="."]
-visible = true
 show_behind_parent = true
 anchor_top = 0.8
 anchor_bottom = 0.8
@@ -331,6 +328,7 @@ margin_left = 8.0
 margin_top = -208.0
 margin_right = 258.0
 margin_bottom = -8.0
+custom_fonts/title_font = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Melon Coiffure"
 __meta__ = {
@@ -350,17 +348,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="WindowDialog1/TextAnnot1"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.172549, 0.176471, 0.219608, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="WindowDialog2" type="WindowDialog" parent="."]
-visible = true
 show_behind_parent = true
 anchor_top = 0.8
 anchor_bottom = 0.8
@@ -368,6 +356,7 @@ margin_left = 40.0
 margin_top = -184.0
 margin_right = 290.0
 margin_bottom = 16.0
+custom_fonts/title_font = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Shield like Coiffure"
 __meta__ = {
@@ -387,23 +376,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="WindowDialog2/TextAnnot2"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.172549, 0.176471, 0.219608, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="WindowDialog3" type="WindowDialog" parent="."]
-visible = true
 show_behind_parent = true
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -100.0
 margin_right = 250.0
 margin_bottom = 100.0
+custom_fonts/title_font = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Lack of information"
 __meta__ = {
@@ -420,15 +400,6 @@ custom_fonts/normal_font = ExtResource( 1 )
 text = "
 This spot and the bottom side of the neck has bad information and lacks information from conditions during the photo acquisition."
 selection_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="WindowDialog3/TextAnnot3"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.172549, 0.176471, 0.219608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -464,22 +435,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TabContainerHead1" type="TabContainer" parent="."]
-visible = false
+[node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -300.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 300, 0 )
-custom_fonts/font = ExtResource( 1 )
+margin_left = -350.0
+margin_top = -400.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tabs" type="Tabs" parent="TabContainerHead1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 343.0
+margin_bottom = 793.0
+
+[node name="LabelDescr" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 336.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 1 )
+text = "Description"
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer"]
+margin_top = 25.0
+margin_right = 336.0
+margin_bottom = 403.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 407.0
+margin_right = 336.0
+margin_bottom = 786.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+
+[node name="Metadata" type="Tabs" parent="PanelContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -487,7 +490,29 @@ margin_top = 39.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Tabs2" type="Tabs" parent="TabContainerHead1"]
+[node name="RichTextLabelMeta" type="RichTextLabel" parent="PanelContainer/VBoxContainer/TabContainer/Metadata"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+text = "LUK: S148
+IDnr: 4745
+Material: Marble (white)
+Measurements: 30(h)x25(l)x26(w) cm
+Category: Sculpture
+Sub category: Head
+Artist: Unknown
+Location: Lund
+Collection: Lund University Art Collection
+Provenance: Gifted to the University in 1949 by Charles Sandegren. No prior information
+Date/Period: Late 1st century CE
+Style: Flavian
+Description: Portrait of female roman with melon coiffure in the back and flavian shieldlike coiffure in the front as primary distincitve features. Mended and restored perhaps during the 18th century CE (nose, base). "
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Paradata" type="Tabs" parent="PanelContainer/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -496,19 +521,109 @@ margin_top = 39.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Tabs3" type="Tabs" parent="TabContainerHead1"]
-visible = false
+[node name="RichTextLabelPara" type="RichTextLabel" parent="PanelContainer/VBoxContainer/TabContainer/Paradata"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+focus_mode = 2
+text = "Digitized information folder: LUKS148_dataset12
+Aquisition method: Photogrammetry
+Software used: Agisoft Metashape
+Num of textures: 1
+Total polygons: 1,499,999
+Num of pictures: 44
+Total points: 750, 396
+Author: F. Johnstone
+Project filename: dataset_12.psx
+Texture filename: dataset_12_high.jpg
+Mesh filename: dataset_12_high.obj
+Link to online repository: https://drive.google.com/drive/folders/1J4wht5NWNKsaPdCOHCjzqAo8tgtkfenf?usp=sharing"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialogStart" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -150.0
+margin_right = 250.0
+margin_bottom = 150.0
+custom_fonts/title_font = ExtResource( 1 )
+window_title = "Greetings"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialogStart"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "Welcome to the visualisation of my digital replication of a roman marble portrait for my masters thesis.
+
+You can move around the 3D models by holding either middle or right mouse button and rotating and also zoom in and out using either the scroll wheel or +/- on the numpad.
+
+The popup windows are movable and closable. And you select what to show using the top bar.
+
+Using fullscreen is preferable."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
+
+[node name="WindowDialogProject" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -150.0
+margin_right = 250.0
+margin_bottom = 150.0
+custom_fonts/title_font = ExtResource( 1 )
+window_title = "Project information"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Photogrammetry" type="RichTextLabel" parent="WindowDialogProject"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 490.0
+margin_bottom = 290.0
+grow_vertical = 0
+focus_mode = 2
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 1 )
+text = "Photogrammetry.
+
+The photo-aquisition for the photogrammetric process was made by taking 44 images with a Canon EOS 6D Mark II. 
+
+These images were the imported into Agisoft Metashape and processed into pointclouds and textured 3D models.
+
+Analysis.
+
+The textured 3D model was used in visual analyis and helped reveal information on stylistic elemets for typology and dating.
+
+The point clouds were used in the software CloudCompare in order to produce a shapefile of the reproductions profile in order to conduct a profile analysis.
+
+The 3D mesh was used in Blender with the ExtendedMatrix add-on in order to visualise my archaeological interpretation of the artefacts biographical context. This result can be seen in this project as Head 2."
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="SelectionUI/ButtonHead1" to="." method="_on_ButtonHead1_pressed"]
 [connection signal="pressed" from="SelectionUI/ButtonFocus1" to="." method="_on_ButtonFocus1_pressed"]
 [connection signal="pressed" from="SelectionUI/ButtonHead2" to="." method="_on_ButtonHead2_pressed"]
 [connection signal="pressed" from="SelectionUI/ButtonFocus2" to="." method="_on_ButtonFocus2_pressed"]
+[connection signal="pressed" from="SelectionUI/ButtonProjectInfo" to="." method="_on_ButtonProjectInfo_pressed"]
 [connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]
 [connection signal="pressed" from="ButtonScreenCapture" to="." method="_on_ButtonScreenCapture_pressed"]
 [connection signal="pressed" from="ButtonSavePosition" to="." method="_on_ButtonSavePosition_pressed"]

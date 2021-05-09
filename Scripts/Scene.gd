@@ -4,6 +4,7 @@ extends Node
 var stored_positions_x = []
 var stored_positions_y = []
 var count = 0
+onready var displaytext = $PanelContainer/VBoxContainer/Panel/RichTextLabel
 
 onready var itemList = get_node("ItemList")
 
@@ -11,6 +12,8 @@ func _ready():
 	$AudioStreamPlayer.play()
 	$Head2/MeshInstance.visible = false
 	$Head/MeshInstance.visible = true
+	displaytext.text = $WindowDialogTextHead/TextHead.text
+	$WindowDialogStart.show()
 	
 	
 
@@ -124,3 +127,7 @@ func _on_TextureButton_toggled(button_pressed):
 		$AudioStreamPlayer.volume_db = -80
 	else:
 		$AudioStreamPlayer.volume_db = -3
+
+
+func _on_ButtonProjectInfo_pressed():
+	$WindowDialogProject.show()
